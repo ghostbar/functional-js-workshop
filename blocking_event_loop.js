@@ -4,7 +4,13 @@ function repeat (operation, num) {
 
   operation();
 
-  return repeat(operation, --num);
+  if (num % 2 === 0) {
+    setTimeout(function () {
+      repeat(operation, --num);
+    });
+  } else {
+    repeat(operation, --num);
+  }
 }
 
 module.exports = repeat;
